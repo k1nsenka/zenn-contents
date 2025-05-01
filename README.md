@@ -1,3 +1,3 @@
 # Zenn CLI
 
-* [📘 How to use](https://zenn.dev/zenn/articles/zenn-cli-guide)
+* [📘 k1nsenka articles](https://zenn.dev/k1nsenka)
