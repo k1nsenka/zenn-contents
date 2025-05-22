@@ -25,6 +25,7 @@ out/
 
 # Zenn CLIの設定ファイル（必要に応じて）
 # .zenn/
+drafts/
 
 # その他の不要なファイルやディレクトリ
 Thumbs.db
