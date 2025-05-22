@@ -3,7 +3,7 @@ title: "【完全自前構築】ZoteroのWebDAV同期サーバーをDocker+Tails
 emoji: "📚"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Zotero,WebDAV,Docker,Tailscale,iPad]
-published: false
+published: true
 ---
 
 **TL;DR**
@@ -193,7 +193,7 @@ cd ~/zotero-webdav
 ```
 
 ### Step 2: 環境変数ファイル作成
-
+そのままプロジェクトルート( ~/zotero-webdav)でターミナルで実行
 ```bash
 cat > .env << EOF
 WEBDAV_USERNAME="username"
@@ -203,7 +203,7 @@ EOF
 ```
 
 ### Step 3: Dockerfile作成
-
+プロジェクトルート( ~/zotero-webdav)にファイル追加
 ::::details dockerfile
 ```dockerfile
 FROM alpine:latest
@@ -236,7 +236,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ::::
 
 ### Step 4: Nginx設定ファイル作成
-
+そのままプロジェクトルート( ~/zotero-webdav)でターミナルで実行
 ::::details nginx/default.conf
 ```bash
 mkdir -p nginx
@@ -281,6 +281,9 @@ docker-composeでビルドする際に、パスワードなどの情報を引数
 （今回は一応.envファイルにユーザーネームとパスワードを保管しているが、効果ないらしい。イメージを共有したときにログを解析されるとパスワードとかがバレるらしい。）
 
 :::
+
+プロジェクトルート( ~/zotero-webdav)にdocker-compose.yamlファイルを追加
+
 ```yaml
 services:
   zotero-webdav:
@@ -307,7 +310,7 @@ volumes:
 いちいちdockerコマンドを打つのがめんどいので、私はよく起動スクリプトを書きます。
 
 起動スクリプト（`scripts/start.sh`）:
-
+そのままプロジェクトルート( ~/zotero-webdav)でターミナルで実行
 ::::details start.sh
 ```bash
 #!/bin/bash
@@ -438,6 +441,8 @@ chmod +x /usr/local/bin/zotadd
 `/PathTo/`を自分のPCものに置き換えて下さい。
 
 `zotero_process.sh`:
+
+~/zotero-contents/にファイル追加
 
 ::::details zotero_process.sh
 ```bash
