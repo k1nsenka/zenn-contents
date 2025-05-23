@@ -489,6 +489,9 @@ if ! pgrep -x "Zotero" > /dev/null; then
     fi
 fi
 
+# コマンドでzoteroを起動する
+open -a 'Zotero.app'
+
 # ソースディレクトリ内のPDFファイルを検索
 pdf_files=$(find "$SOURCE_DIR" -name "*.pdf" -type f)
 pdf_count=$(echo "$pdf_files" | grep -c '^' || echo "0")
